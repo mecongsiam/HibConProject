@@ -14,7 +14,5 @@ public class UpdateUser implements Command {
         UserService.updateUser(request.getUser());
         response.setResult(true);
         return response;
-
-
     }
 }

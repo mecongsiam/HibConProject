@@ -15,14 +15,12 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String args[]) {
-        int x=1;
+        boolean result=true;
         MainMenu mainMenu=new MainMenu();
-        while(x>0){
-           x=mainMenu.run();
+        while(result){
+           result=mainMenu.run();
+
         }
-
-
-
     }
 
 }

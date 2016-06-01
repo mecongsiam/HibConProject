@@ -12,7 +12,7 @@ import java.util.Scanner;
  * Created by meco on 01.06.2016.
  */
 public class MainMenu {
-    public int run(){
+    public boolean run(){
         Controller controller = new Controller();
         Request request = new Request();
         Response response = new Response();
@@ -24,10 +24,11 @@ public class MainMenu {
         System.out.println("3.Update user");
         System.out.println("4.Delete user");
         System.out.println("5.Show all users");
+        System.out.println("6.Exit");
 
         while (!answer.hasNext("1") && !answer.hasNext("4") && !answer.hasNext("3") && !answer.hasNext("2")
-                && !answer.hasNext("5")) {
-            System.out.println("select option: 1 - 5");
+                && !answer.hasNext("5") && !answer.hasNext("6")) {
+            System.out.println("select option: 1 - 6");
             answer.nextLine();
 
         }
@@ -75,8 +76,11 @@ public class MainMenu {
                 request.setCommandName("READ_ALL_USERS");
                 response=controller.doAction(request);
                 break;
+            case 6:
+                return false;
+
         }
-        return 1;
+        return true;
 
     }
 }
