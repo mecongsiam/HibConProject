@@ -21,6 +21,7 @@ public class Main {
            result=mainMenu.run();
 
         }
+        HibernateSessionManager.shutdown();
     }
 
 }
