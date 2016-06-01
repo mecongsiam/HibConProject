@@ -64,8 +64,9 @@ public class DBUserOperationDAO<T> implements DBUserOperation<T> {
     public List<User> readAllUsers() {
         Session session = HibernateSessionManager.getSessionFactory().openSession();
         session.beginTransaction();
-        Query query = session.createQuery("from User ");
+        Query query = session.createQuery("from User");
         List<User> userList = query.list();
+        session.close();
         return userList;
 
     }

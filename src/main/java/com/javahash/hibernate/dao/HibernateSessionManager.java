@@ -1,11 +1,13 @@
 package com.javahash.hibernate.dao;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateSessionManager {
 	
 	private static final SessionFactory sessionFactory = buildSessionFactory();
+	public static final ThreadLocal local =new ThreadLocal();
 	 
 	private static SessionFactory buildSessionFactory() {
 		try {
@@ -25,6 +27,15 @@ public class HibernateSessionManager {
 	public static void shutdown() {
 		// Close caches and connection pools
 		getSessionFactory().close();
+	}
+
+	public static Session currentSession(){
+		Session session=(Session)local.get();
+		if(session==null){
+			session=sessionFactory.openSession();
+			local.set(session);
+		}
+		return session;
 	}
 
 }

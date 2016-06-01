@@ -6,6 +6,7 @@ import com.javahash.hibernate.dao.impl.DBUserOperationDAO;
  * Created by meco on 29.05.2016.
  */
 public class DAOFactory {
+
     private static final DAOFactory instance=new DAOFactory();
 
     private DBUserOperation dbUserOperation=new DBUserOperationDAO();
