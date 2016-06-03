@@ -17,6 +17,7 @@ public class CommandHelper {
         commands.put(CommandName.READ_USER, new ReadUser());
         commands.put(CommandName.DELETE_USER, new DeleteUser());
         commands.put(CommandName.READ_ALL_USERS, new ReadAllUsers());
+        commands.put(CommandName.READ_LOAD ,new ReadLoad());
 
 
     }

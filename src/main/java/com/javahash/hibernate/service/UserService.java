@@ -1,5 +1,6 @@
 package com.javahash.hibernate.service;
 
+import com.javahash.hibernate.dao.DAOException;
 import com.javahash.hibernate.dao.DAOFactory;
 import com.javahash.hibernate.dao.DBUserOperation;
 import com.javahash.hibernate.pojo.User;
@@ -26,11 +27,16 @@ public class UserService {
         return true;
 
     }
-    public static User   readUser(User user){
+    public static User   readUser(User user) throws ServiceException {
         User result;
         DAOFactory daoFactory=DAOFactory.getInstance();
         DBUserOperation dbUserOperation=daoFactory.getDbUserOperation();
-        Object obj=dbUserOperation.read(user,user.getUserId());
+        Object obj= null;
+        try {
+            obj = dbUserOperation.read(user,user.getUserId());
+        } catch (DAOException e) {
+            throw new ServiceException(e.getMessage().toString());
+        }
         user=(User)obj;
         return user;
 
@@ -44,6 +50,20 @@ public class UserService {
         DAOFactory daoFactory=DAOFactory.getInstance();
         DBUserOperation dbUserOperation=daoFactory.getDbUserOperation();
         return dbUserOperation.readAllUsers();
+
+    }
+    public static User   readLoadUser(User user) throws ServiceException {
+        User result;
+        DAOFactory daoFactory=DAOFactory.getInstance();
+        DBUserOperation dbUserOperation=daoFactory.getDbUserOperation();
+        Object obj= null;
+        try {
+            obj = dbUserOperation.readLoad(user,user.getUserId());
+        } catch (DAOException e) {
+            throw new ServiceException(e.getMessage().toString());
+        }
+        user=(User)obj;
+        return user;
 
     }
 }

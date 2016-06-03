@@ -8,15 +8,15 @@ import com.javahash.hibernate.service.ServiceException;
 import com.javahash.hibernate.service.UserService;
 
 /**
- * Created by meco on 30.05.2016.
+ * Created by meco on 02.06.2016.
  */
-public class ReadUser implements Command {
+public class ReadLoad implements Command {
     public Response execute(Request request) {
         Response response=new Response();
 
         User user= null;
         try {
-            user = UserService.readUser(request.getUser());
+            user = UserService.readLoadUser(request.getUser());
             System.out.println(user.getUsername()+" "+user.getCreatedBy());
         } catch (ServiceException e) {
             System.out.println("No such user.Chech other id: ");

@@ -10,9 +10,11 @@ import java.util.List;
 public interface DBUserOperation<T> {
     T  update(T t);
     T  create(T t);
-    T read(T t,int id);
+    T read(T t,int id) throws DAOException;
     T delete(T t);
     List<User> readAllUsers();
+    T readLoad(T t,int id) throws DAOException;
+    void refresh();
 
 
 

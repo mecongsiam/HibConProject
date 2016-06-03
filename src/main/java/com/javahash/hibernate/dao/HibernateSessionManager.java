@@ -35,6 +35,7 @@ public class HibernateSessionManager {
 			session=sessionFactory.openSession();
 			local.set(session);
 		}
+
 		return session;
 	}
 

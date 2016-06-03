@@ -18,17 +18,18 @@ public class MainMenu {
         Response response = new Response();
         Scanner answer = new Scanner(System.in);
         String ans = null;
-        System.out.println("select option: 1 - 4");
+        System.out.println("select option: 1 - 7");
         System.out.println("1.Create user");
         System.out.println("2.Read user");
         System.out.println("3.Update user");
         System.out.println("4.Delete user");
         System.out.println("5.Show all users");
         System.out.println("6.Exit");
+        System.out.println("7.ReadLoad");
 
         while (!answer.hasNext("1") && !answer.hasNext("4") && !answer.hasNext("3") && !answer.hasNext("2")
-                && !answer.hasNext("5") && !answer.hasNext("6")) {
-            System.out.println("select option: 1 - 6");
+                && !answer.hasNext("5") && !answer.hasNext("6") && !answer.hasNext("7")) {
+            System.out.println("select option: 1 - 7");
             answer.nextLine();
 
         }
@@ -50,8 +51,17 @@ public class MainMenu {
                 break;
             case 2:
                 request.setCommandName("READ_USER");
+                int x;
                 user=new User();
-                user.setUserId(4);
+                 scanner=new Scanner(System.in);
+                System.out.println("Enter id:");
+                while(!scanner.hasNextInt()){
+                    System.out.println("Enter value should be int type.Enter id:");
+                    scanner.nextLine();
+
+                }
+                x=scanner.nextInt();
+                user.setUserId(x);
                 request.setUser(user);
                 response = controller.doAction(request);
                 break;
@@ -77,7 +87,19 @@ public class MainMenu {
                 response=controller.doAction(request);
                 break;
             case 6:
+
                 return false;
+
+            case 7:
+                request.setCommandName("READ_LOAD");
+                user=new User();
+
+                user.setUserId(4);
+                request.setUser(user);
+                response = controller.doAction(request);
+                break;
+
+
 
         }
         return true;

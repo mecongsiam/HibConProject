@@ -3,8 +3,8 @@
     "-//Hibernate/Hibernate Mapping DTD//EN"
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
     
-<hibernate-mapping>
-    <class name="com.javahash.hibernate.pojo.User" table="USER">
+<hibernate-mapping package="com.javahash.hibernate.pojo" schema="hibtest">
+    <class name="User" table="USER">
         <id name="userId" type="int" column="USER_ID" >
             <generator class="increment"/>
         </id>
