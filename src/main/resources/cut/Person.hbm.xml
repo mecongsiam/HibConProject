@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+        <hibernate-mapping package="com.javahash.hibernate.pojo" schema="hibtest" default-cascade="">
+    <class name="Person" table="person" discriminator-value="P">
+        <id name="id" type="int">
+            <generator class="increment">
+            </generator>
+        </id>
+        <discriminator column="person_type" type="string"/>
+        <property name="name" column="name" type="string"/>
+        <property name="surname" column="surname" type="string"/>
+        <subclass name="Employeer" discriminator-value="E">
+            <property name="company"/>
+            <property name="salary"/>
+        </subclass>
+        <subclass name="Student" discriminator-value="S">
+            <property name="faculty"/>
+            <property name="mark"/>
+        </subclass>
+
+
+
+
+    </class>
+</hibernate-mapping>

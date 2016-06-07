@@ -10,12 +10,25 @@
   <property name="hibernate.connection.username">root</property>
   <property name="hibernate.connection.password">qweasd</property>
   <property name="show_sql">true</property>
+  <property name="format_sql">true</property>
   <property name="hibernate.c3p0.min_size">5</property>
   <property name="hibernate.c3p0.max_size">20</property>
   <property name="hibernate.c3p0.timeout">300</property>
   <property name="hibernate.c3p0.max_statements">50</property>
   <property name="hibernate.c3p0.idle_test_period">3000</property>
+
   <mapping resource="User.hbm.xml"></mapping>
   <mapping resource="Car.hbm.xml"></mapping>
+  <mapping resource="Person.hbm.xml"></mapping>
+  <mapping resource="Customer.hbm.xml"></mapping>
+  <mapping resource="Place.hbm.xml"></mapping>
+  <mapping resource="Cat.hbm.xml"></mapping>
+  <mapping resource="House.hbm.xml"></mapping>
+  <mapping resource="Book.hbm.xml"></mapping>
+  <mapping resource="Auther.hbm.xml"></mapping>
+
+
+
 </session-factory>
+
 </hibernate-configuration>

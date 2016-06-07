@@ -61,7 +61,7 @@ public class MainMenu {
 
                 }
                 x=scanner.nextInt();
-                user.setUserId(x);
+                user.setUserId(4);
                 request.setUser(user);
                 response = controller.doAction(request);
                 break;

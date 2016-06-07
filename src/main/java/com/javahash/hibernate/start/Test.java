@@ -16,7 +16,7 @@ public class Test {
 //        operationTesting.carRead();
             //operationTesting.carAdd();
         //operationTesting.refreshTest();
-        operationTesting.componentTesting();
+        operationTesting.manyToManyAdd();
     }
 
 }

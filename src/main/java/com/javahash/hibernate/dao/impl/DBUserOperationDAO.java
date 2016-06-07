@@ -17,6 +17,8 @@ import java.util.Scanner;
  * Created by meco on 29.05.2016.
  */
 public class DBUserOperationDAO<T> implements DBUserOperation<T> {
+
+
     public T create(T t) {
         Session session = HibernateSessionManager.getSessionFactory().openSession();
         session.beginTransaction();
@@ -34,7 +36,10 @@ public class DBUserOperationDAO<T> implements DBUserOperation<T> {
         Session session = HibernateSessionManager.getSessionFactory().openSession();
 
          Transaction transaction=session.beginTransaction();
+        System.out.print(getClass().getTypeParameters()[0]);
+
         try{
+
         t = (T) session.get(t.getClass(), id);}catch(Exception e){
             throw new DAOException(e.getMessage().toString());
         }
@@ -102,6 +107,7 @@ public class DBUserOperationDAO<T> implements DBUserOperation<T> {
         if(session.isDirty()){
             session.clear();
 
+
         }
         System.out.println(session.isDirty());
         session.refresh(user);
@@ -109,5 +115,7 @@ public class DBUserOperationDAO<T> implements DBUserOperation<T> {
         session.close();
 
     }
+
+
 
 }

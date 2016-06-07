@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.javahash.hibernate.pojo.many_to_many" schema="hibtest" default-cascade="">
+    <class name="Auther">
+        <id name="id">
+            <generator class="increment"/>
+        </id>
+        <property name="surname"/>
+        <set name="books" table="book_auther" inverse="false" lazy="true" fetch="select" cascade="all">
+            <key column="id_auther"/>
+            <many-to-many column="id_book" class="Book"/>
+        </set>
+    </class>
+</hibernate-mapping>
