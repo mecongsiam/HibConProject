@@ -9,6 +9,7 @@
   <property name="hibernate.connection.url">jdbc:mysql://localhost:3306</property>
   <property name="hibernate.connection.username">root</property>
   <property name="hibernate.connection.password">qweasd</property>
+  <property name="default_schema">hibtest</property>
   <property name="show_sql">true</property>
   <property name="format_sql">true</property>
   <property name="hibernate.c3p0.min_size">5</property>
@@ -26,6 +27,14 @@
   <mapping resource="House.hbm.xml"></mapping>
   <mapping resource="Book.hbm.xml"></mapping>
   <mapping resource="Auther.hbm.xml"></mapping>
+
+  <mapping class="com.javahash.hibernate.pojo.hib_annotation.Player"/>
+  <mapping class="com.javahash.hibernate.pojo.anno_one_to_one.Dog"/>
+  <mapping class="com.javahash.hibernate.pojo.anno_one_to_one.DogHouse"/>
+  <mapping class="com.javahash.hibernate.pojo.anno_one_to_many.DogDepartment"/>
+  <mapping class="com.javahash.hibernate.pojo.anno_many_to_many.Song"/>
+  <mapping class="com.javahash.hibernate.pojo.anno_many_to_many.Writer"/>
+
 
 
 
