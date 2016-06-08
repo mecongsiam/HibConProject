@@ -272,4 +272,24 @@ public class OperationTesting {
 
 
     }
+    public void annoManyToManyRead(){
+        Song song=new Song();
+        DAOFactory daoFactory=DAOFactory.getInstance();
+        try {
+            song=(Song)daoFactory.getDbUserOperation().read(song,1);
+            for(Writer writer:song.getWriters()){
+
+                System.out.println(writer.getName());
+            }
+        } catch (DAOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void annoManyToManyDelete(){
+        Writer writer=new Writer();
+        writer.setId(5);
+        writer.setName("Creeper");
+        DAOFactory daoFactory=DAOFactory.getInstance();
+        daoFactory.getDbUserOperation().delete(writer);
+    }
 }
